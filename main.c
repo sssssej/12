@@ -1,25 +1,33 @@
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
-struct student {
-    int id;          // 학번
-    char name[20];   // 이름
-    double grade;    // 학점
+struct point {
+    int x;
+    int y;
 };
 
 int main(void) {
-    // 구조체 변수 선언 및 초기화
-    struct student s = {111111, "hong", 3.5};
+    struct point p1, p2;
+    int xdiff, ydiff;
+    double dist;
 
-    // 멤버 참조를 이용하여 값 변경
-    s.id = 123456;
-    strcpy(s.name, "uyeop");
-    s.grade = 4.2;
+    // 첫 번째 점 입력
+    printf("input p1 coordinate (x y) : ");
+    scanf("%d %d", &p1.x, &p1.y);
 
-    // 각 멤버 출력
-    printf("ID : %d\n", s.id);
-    printf("name : %s\n", s.name);
-    printf("grade : %f\n", s.grade);
+    // 두 번째 점 입력
+    printf("input p2 coordinate (x y) : ");
+    scanf("%d %d", &p2.x, &p2.y);
+
+    // 두 점의 x, y 좌표 차이 계산
+    xdiff = p1.x - p2.x;
+    ydiff = p1.y - p2.y;
+
+    // 두 점 사이의 거리 계산
+    dist = sqrt(xdiff * xdiff + ydiff * ydiff);
+
+    // 결과 출력
+    printf("distance : %f\n", dist);
 
     return 0;
 }
